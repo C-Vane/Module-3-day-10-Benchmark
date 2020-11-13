@@ -16,7 +16,7 @@
     <body>
         <div class="navbar-dark bg-dark">
             <!--NAVBAR START-->
-            <nav class="navbar navbar-expand-lg navbar-dark">
+            <nav class="navbar container navbar-expand-lg navbar-dark">
                 <img src="https://fontmeme.com/permalink/201016/43d068e8e91bfc2ab70c55cd3afe6508.png" alt="netflix-font"
                     style="background-color: transparent;" />
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -35,11 +35,12 @@
 
                     </ul>
 
-                    <div class="dropdown dropleft mr-1">
+                    <div class="dropdown mr-1">
                         <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
                             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/366be133850498.56ba69ac36858.png"
                                 width=30>
+                            <span> Admin</span>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
 
@@ -65,9 +66,17 @@
                                 required />
                         </div>
                         <div class="from-group">
-                            <label for="catagory"> Catagory of the movie </label>
-                            <input type="text" class="form-control" id="catagory"
-                                placeholder="Write the movie catagory here" required />
+                            <label for="category"> Catagory of the movie </label>
+                            <input type="text" class="form-control" id="category" list="geners"
+                                placeholder="Select or add movie catagory here" required />
+                            <datalist id="geners">
+                                <option value="Action">
+                                <option value="Romantic">
+                                <option value="Horror">
+                                <option value="Drama">
+                                <option value="Comedy">
+                            </datalist>
+
                         </div>
                         <div class="from-group">
                             <label for="description"> Movie Description </label>
@@ -90,7 +99,7 @@
             </div>
 
             <h2 class="text-center mt-5" id="remove">Remove and Edit movies</h2>
-            <table class="table">
+            <table class=" table table-responsive-md">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
@@ -103,6 +112,7 @@
                 </thead>
                 <tbody></tbody>
             </table>
+
         </div>
 
         <!-- Optional JavaScript -->
@@ -116,6 +126,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+        <script type="text/javascript" src="movielist.json"></script>
         <script src="backoffice.js"></script>
 
     </body>

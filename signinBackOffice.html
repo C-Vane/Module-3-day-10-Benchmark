@@ -14,8 +14,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="pageone.css">
-    <title>Netflix</title>
+    <link rel="stylesheet" href="signin.css">
+    <title>Netflix Admin Log In</title>
   </head>
 
   <body>
@@ -23,39 +23,50 @@
 
       <header class="showcase">
         <nav class="navbar">
-          <img src="https://fontmeme.com/permalink/201016/43d068e8e91bfc2ab70c55cd3afe6508.png" alt="netflix-font"
-            style="background-color: transparent;" width="250px" />
-          <div>
-            <button id="signin" class="btn" onClick="window.location.href='signin.html'">Sign In</button>
-            <button id="signinAdmin" class="btn-outline-danger"
-              onClick="window.location.href='signinBackOffice.html'">Admin Sign In </button>
-          </div>
+          <img src="/images/striveflix.png" alt="netflix-font" style="background-color: transparent;" width="220px" />
+
         </nav>
 
-        <div class="showcase-content">
-          <h1>See what's next</h1>
-          <p>Watch anywhere - Cancel anytime</p>
-          <div class="largescreen">
-            <span>Ready to watch? Enter your email to create or restart your membership.</span>
-            <span id="emailhold"><b>Email address</b></address></span>
-            <form>
-
-              <input type="text" id="email" class="email" required>
-              <input type="submit" class="btn btn-xl" onClick="window.location.href='home.html'"
-                value="TRY 30 DAYS FREE">
-            </form>
-
-            <span>Only new members are eligible for this offer.</span>
+        <form id="signin">
+          <h1>Admin Log in</h1>
+          <span class="exampleInput">Email address</span>
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
           </div>
-          <div class="smallscreen">
-            <input type="submit" class="btn btn-xl" onClick="window.location.href='home.html'"
-              value="WATCH FREE FOR 30 DAYS">
+          <span class="exampleInput">Password</span>
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" required>
           </div>
-        </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Remember me</label>
+          </div>
+          <button id="sign in" class="btn" onClick="logIn(event)">Sign In</button>
+
+
+        </form>
 
       </header>
     </div>
+    <!--FOOTER START-->
+    <footer class="mx-auto">
+      <div class="container mt-5 mb-3 align-baseline mx-auto">
+        <div class="row">
+          <div class="col-sm-12 col-md-3 footer mb-3">
+            <a class="align-baseline d-block footer-link">Contact us</a>
+            <button class="btn-sm mt-3 btn-footer">Service center</button>
+          </div>
 
+          <div class="col-sm-12 col-md-3 footer mb-3">
+            <a class="align-baseline d-block footer-link">Help Center</a>
+            <a class="align-baseline d-block footer-link">Jobs</a>
+            <a class="align-baseline d-block footer-link">Cookies preferences</a>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+    <!--FOOTER END-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -67,6 +78,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
+    <script src="/signinBackOffice.js"></script>
   </body>
 
 </html>
