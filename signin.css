@@ -254,3 +254,15 @@ footer {
   color: #fff !important;
 }
 /*footer*/
+/*ERROR*/
+
+.haserrorborder {
+  border-color: red;
+}
+
+.haserror ::after {
+  content: "Please enter correct usarname and password";
+  color: red;
+  display: block;
+  z-index: 20;
+}
