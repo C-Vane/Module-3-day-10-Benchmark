@@ -13,8 +13,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css">
-    <title>Netflix Home</title>
+    <title>About Movie</title>
   </head>
+  <style>
+    .size {
+      height: auto;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    .btn {
+      padding: 15px;
+      width: 260px;
+    }
+
+    .red {
+      background-color: brown !important;
+      border: none;
+    }
+  </style>
 
   <body>
     <!--NAVBAR START-->
@@ -75,133 +92,9 @@
     <!--NAVBAR END-->
 
     <!--TRENDING MOVIES SECTION-->
-    <div class="title ml-4 mt-3 text-center">
-      <h1>TV Shows</h1>
-      <select name="genres" id="genres" class="mt-1" onchange="loadMovies()">
-        <option value="Action">Geners</option>
-      </select>
+    <div id="mainpart" class="container">
+
     </div>
-    <h5 class="sm-text-center ml-4 mt-3">Trending now</h5>
-    <div class="container-fluid">
-      <div id="trending" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container-fluid">
-              <div class="row">
-
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-
-
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <a class="carousel-control-prev" href="#trending" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#trending" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-
-
-    <h5 class="sm-text-center ml-4 mt-4">Watch It Again</h5>
-    <div class="container-fluid">
-      <div id="watchagain" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container-fluid">
-              <div class="row">
-
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <a class="carousel-control-prev" href="#watchagain" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#watchagain" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-
-
-    <h5 class="sm-text-center ml-4 mt-4">New Releases</h5>
-    <div class="container-fluid">
-      <div id="newreleses" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container-fluid">
-              <div class="row">
-
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <a class="carousel-control-prev" href="#newreleses" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#newreleses" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <!--TRENDING MOVIES SECTION END-->
-
-
-    <!--FOOTER START-->
     <footer class="mx-auto">
       <div class="container mt-5 mb-3 align-baseline mx-auto">
         <div class="socials mb-2">
@@ -240,8 +133,7 @@
 
 
 
-    <!-- Optional JavaScript 
-    <script src="index.js"></script> -->
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -253,7 +145,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
-    <script src="/home.js"></script>
+    <script src="/detail.js"></script>
   </body>
 
 </html>

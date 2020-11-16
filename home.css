@@ -74,9 +74,12 @@ select {
   height: 130px;
   transition: all ease 0.15s;
 }
-.img-fluid:hover {
+a:hover ~ .details,
+.details:hover,
+a:hover .img-fluid {
   transition: all ease 0.15s;
   transform: scale(1.2);
+  display: block;
 }
 
 /*trending movies section end*/
@@ -152,4 +155,17 @@ footer {
     color: rgb(185, 185, 185) !important;
     text-align: center;
   }
+}
+
+/**********************  Card hover details    ***********************/
+.details {
+  background: linear-gradient(to bottom, #2c2c2c6c, #2c2c2c);
+  position: relative;
+  font-size: 12px;
+  height: 30%;
+  bottom: 20%;
+  display: none;
+}
+.details .title {
+  font-size: 15px;
 }

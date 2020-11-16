@@ -1,4 +1,4 @@
-let movie;
+let movies = [];
 const url = "https://striveschool-api.herokuapp.com/api/movies/";
 window.onload = async () => {
   let current_movie = document.getElementsByTagName("tbody")[0];
@@ -27,20 +27,22 @@ window.onload = async () => {
           movie.forEach((movie) => {
             let prod = document.createElement("tr");
             const id = movie._id;
+            movies.push(movie);
             prod.innerHTML = `
             <th scope="row">${movie._id}</th>
             <td>${movie.name}</td>
             <td>${movie.category}</td>
             <td>${movie.description}</td>
-            <td><button class="btn btn-outline-danger remove" id="${id}">
+            <td><button class="btn btn-outline-danger remove"  data-toggle="modal" data-target="#modal" id="${id}">
             Cancel</button></td>
-            <td><button class="btn btn-outline-warning edit" id="${id}">
+            <td><button class="btn btn-outline-warning edit" id="${movie._id}">
             Edit</button> </td>
         `;
             current_movie.appendChild(prod);
           });
+          console.log(movies);
           const removebtn = document.querySelectorAll(".remove");
-          removebtn.forEach((btn) => btn.addEventListener("click", removemovie));
+          removebtn.forEach((btn) => btn.addEventListener("click", modalRemove));
           const editBtn = document.querySelectorAll(".edit");
           editBtn.forEach((btn) => btn.addEventListener("click", editmovie));
         } catch (err) {
@@ -52,8 +54,34 @@ window.onload = async () => {
     console.log(err);
   }
 };
-const removemovie = async (event) => {
-  let id = event.target.id;
+const modalRemove = (events) => {
+  let id = events.target.id;
+  let title = movies.filter((prod) => prod._id === id)[0].name;
+  const modal = document.getElementById("modal");
+  modal.innerHTML = `
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Delete Movie</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to delete ${title}?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-outline-primary" data-dismiss="modal"> Yes</button>
+    </div>
+  </div>
+</div>`;
+  let button = modal.querySelector(".btn-outline-primary");
+  button.addEventListener("click", () => {
+    removemovie(id, events);
+  });
+};
+const removemovie = async (id, event) => {
   try {
     let respose = await fetch(url + id, {
       method: "DELETE",
@@ -65,10 +93,8 @@ const removemovie = async (event) => {
       },
     });
     if (respose.ok) {
-      //alert("movie deleted!!!");
-      // spinner.classList.add(".d-none");
-      //window.location.reload();
-      event.target.parentElement.parentElement.style.display = "none";
+      alert("movie deleted!!!");
+      window.location.reload();
     } else alert("There is an error");
   } catch (error) {
     console.log(error);
@@ -79,11 +105,14 @@ const editmovie = async (event) => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
   const h1 = document.getElementsByTagName("h1")[0];
-  h1.innerText = "Edit movie For sale";
+  h1.innerText = "Edit Movie";
   const button = document.querySelector("form button");
-  //button.innerText = "Edit movie";
+  button.classList.add("btn-warning");
+  button.classList.remove("btn-primary");
+  button.innerText = "Edit movie";
   id = event.target.id;
-  let edit_movie = movie.filter((prod) => prod._id === id)[0];
+  let edit_movie = movies.filter((prod) => prod._id === id)[0];
+  console.log(edit_movie);
   document.getElementById("name").value = edit_movie.name;
   document.getElementById("description").value = edit_movie.description;
   document.getElementById("category").value = edit_movie.category;
@@ -137,7 +166,7 @@ const handelSubmit = async (e) => {
   if (respose.ok) {
     alert(`"Movie ${id ? "Edited" : "Added"}!!!"`);
     id = undefined;
-    // location.reload();
+    location.reload();
     //window.location.assign("index.html");
   } else alert("There is an error");
 };
@@ -181,5 +210,4 @@ readTextFile("./movielist.json", async (text) => {
     });
   };
   addMovies();
-});
-*/
+});*/
